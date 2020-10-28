@@ -14,8 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
-from hola_mundo import views
+from Django_social import views
 from posts import views as posts_views
 urlpatterns = [
     path('hello-world/', views.hello_world),
@@ -23,4 +25,4 @@ urlpatterns = [
     path('hi/<str:name>/<int:age>/',views.second_function),
     path('posts1/', posts_views.list_posts1),
     path('posts2/', posts_views.list_posts2)
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
