@@ -1,4 +1,4 @@
-"""hola_mundo URL Configuration
+"""URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -19,9 +19,12 @@ from django.conf.urls.static import static
 from django.urls import path
 from Django_social import views
 from posts import views as posts_views
+from users import views as users_views
+
 urlpatterns = [
-    path('hello-world/', views.hello_world),
-    path('admin/', admin.site.urls),
-    path('hi/<str:name>/<int:age>/',views.second_function),
-    path('posts/', posts_views.list_posts),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('hello-world/', views.hello_world, name='hello'),
+                  path('admin/', admin.site.urls, name='admin'),
+                  path('hi/<str:name>/<int:age>/', views.second_function),
+                  path('posts/', posts_views.list_posts, name='feed'),
+                  path('users/login/', users_views.login_view, name='login')
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

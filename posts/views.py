@@ -1,7 +1,6 @@
-from django.shortcuts import render
-
 # Create your views here.
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from datetime import datetime
 
 posts = [
@@ -34,6 +33,8 @@ posts = [
     },
 ]
 
+
+@login_required
 def list_posts(request):
     """return existing posts"""
     return render(request, 'posts/feed.html', {'posts': posts})
