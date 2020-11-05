@@ -13,7 +13,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user:
             login(request, user)
-            redirect('feed')
+            return redirect('feed')
     else:
         return render(request, 'users/login.html', {'error':  'Invalid username or password'})
     return render(request, 'users/login.html')
