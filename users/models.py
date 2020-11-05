@@ -4,6 +4,8 @@ from django.contrib.auth.models import User, AbstractUser
 
 # Create your models here.
 
+
+
 class Profile(models.Model):
     """Profile model.
     Proxy model that extends the base data with other information"""

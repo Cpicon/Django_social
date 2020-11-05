@@ -34,10 +34,6 @@ posts = [
     },
 ]
 
-def list_posts1(request):
+def list_posts(request):
     """return existing posts"""
-    return render(request, 'feed.html', {'posts': posts})
-
-def list_posts2(request):
-    """return existing posts"""
-    return render(request, 'materialize_feed.html', {'posts': posts})
+    return render(request, 'posts/feed.html', {'posts': posts})

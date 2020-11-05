@@ -23,6 +23,5 @@ urlpatterns = [
     path('hello-world/', views.hello_world),
     path('admin/', admin.site.urls),
     path('hi/<str:name>/<int:age>/',views.second_function),
-    path('posts1/', posts_views.list_posts1),
-    path('posts2/', posts_views.list_posts2)
+    path('posts/', posts_views.list_posts),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
