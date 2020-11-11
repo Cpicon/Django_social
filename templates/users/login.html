@@ -10,15 +10,19 @@
         <p class="alert alert-danger">{{ error }} </p>
     {% endif %}
 
-    <form method="POST" action="{% url "login" %}">
+    <form method="POST" action='{% url "login" %}'>
         {% csrf_token %}
         <div class="form-group">
             <input class="form-control mb-2" type="text" placeholder="Username" name="username" />
         </div>
+
             <input class="form-control mb-2" type="password" placeholder="Password" name="password" />
+
         <div>
         <button class="btn btn-primary btn-block mb-2" type="submit">Sign in!</button>
         </div>
-        <button class="btn btn-secundary btn-block" type="submit">Sign up!</button>
+
     </form>
+        <a href='{% url "signup" %}' class="btn btn-secundary btn-block" >Sign up!</a>
+
 {% endblock %}
