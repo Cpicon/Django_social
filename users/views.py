@@ -61,7 +61,7 @@ def logout_view(request):
     return redirect('login')
 
 
-def singup_view(request):
+def signup_view(request):
     """Sign up a user"""
     print(request.data)
     if request.method == 'POST':

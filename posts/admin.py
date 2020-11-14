@@ -15,7 +15,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('created', 'modified')
 
 
-class ProfileInline(admin.StackedInline):
+class PostInline(admin.StackedInline):
     """Profile in_line for users"""
     model = Post
     can_delete = True
@@ -24,7 +24,7 @@ class ProfileInline(admin.StackedInline):
 
 class UserAdmin(BaseUserAdmin):
     """Add profile admin to base user admin"""
-    inlines = (ProfileInline,)
+    inlines = (PostInline,)
 
 
 admin.site.unregister(User)
