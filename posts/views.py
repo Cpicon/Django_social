@@ -14,13 +14,14 @@ from posts.forms import PostForm
 def list_posts(request):
     """return existing posts"""
     posts = Post.objects.all().order_by('-created')
-    return render(request,
-                  'posts/feed.html',
-                  context={
-                      'posts': posts,
-                      'profile': request.user.profile
-                  }
-                  )
+    return render(
+        request,
+        'posts/feed.html',
+        context={
+            'posts': posts,
+            'profile': request.user.profile
+            }
+        )
 
 @login_required
 def new_post(request):
@@ -30,7 +31,7 @@ def new_post(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('feed')
+            return redirect('posts:feed')
     else:
         form = PostForm()
 
