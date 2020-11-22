@@ -1,22 +1,26 @@
 """Post URLs"""
 
-#Django
+# Django
 
 from django.urls import path
 
-#views
-from posts import views
-
+# views
+from posts.views import PostsFeedView, DetailView, new_post
 
 urlpatterns = [
     path(
         route='',
-        view= views.list_posts,
-        name= 'feed'
+        view=PostsFeedView.as_view(),
+        name='feed'
     ),
     path(
         route='posts/new/',
-        view=views.new_post,
-        name= 'new_post'
+        view=new_post,
+        name='new_post'
+    ),
+    path(
+        route='post/<int:pk>',
+        view=DetailView.as_view(),
+        name='detail'
     )
 ]

@@ -24,6 +24,7 @@ class DetailUser(LoginRequiredMixin, DetailView):
     slug_field = 'username'
     slug_url_kwarg = 'username'
     queryset = User.objects.all()
+    context_object_name = 'user'
 
     def get_context_data(self, **kwargs):
         """Add posts to context"""
